@@ -1,0 +1,7 @@
+#commentary-wrapper {
+    max-width: 650px;
+    box-sizing: border-box;
+    background-color: #EEE;
+    padding: 30px;
+    margin: 0 auto 23px auto;
+}
