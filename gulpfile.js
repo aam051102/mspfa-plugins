@@ -34,11 +34,20 @@ function html(next) {
     next();
 }
 
+function txt(next) {
+    gulp.src("./src/**/*.txt",)
+        .pipe(gulp.dest("./dist"))
+        .pipe(connect.reload());
+    
+    next();
+}
+
 
 gulp.task("build", function(next) {
     js(next);
     css(next);
     html(next);
+    txt(next);
     
     next();
 });

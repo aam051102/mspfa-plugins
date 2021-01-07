@@ -1,0 +1,23 @@
+.mad-suggestion-box {
+    position: relative;
+    width: 400px;
+    margin: 24px auto 0 auto;
+}
+
+.mad-suggestion-box .mad-suggestion-input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.mad-suggestion-box .mad-suggestion-popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #EEEEEE;
+    border: 1px dashed gray;
+}
