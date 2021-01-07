@@ -1,0 +1,8 @@
+/*INIT
+const ruleTest = /@emoji ([^ ;\n]+) ([^ ;\n]+)(?:;|\n|$)/g;
+let ruleMatch;
+    
+while((ruleMatch = ruleTest.exec(MSPFA.story.y)) !== null) {
+    MSPFA.BBC.push([new RegExp(`\\[emoji=${ruleMatch[1]}\\]`, "gi"), `<img src="${ruleMatch[2]}" class="emoji emoji-${ruleMatch[1]}" title="${ruleMatch[1]}" />`]);
+}
+*/
