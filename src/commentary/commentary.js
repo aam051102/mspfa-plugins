@@ -8,10 +8,7 @@ if(cookieEnabled) {
     showCommentary = parseInt(cookieValue) ? true : false;
 }
 
-// Find DOM elements
 const infoDOM = document.body.querySelector("#info");
-const rssBreakDOM = document.body.querySelector(".rss + br");
-
 const commentaryWrapperDOM = document.createElement("div");
 commentaryWrapperDOM.id = "commentary-wrapper";
 commentaryWrapperDOM.style.fontSize = "14px";
@@ -32,30 +29,33 @@ const updateCommentaryBox = () => {
 
 updateCommentaryBox();
 
-// Commentary checkbox wrapper
-const commentaryCheckboxWrapperDOM = document.createElement("div");
-commentaryCheckboxWrapperDOM.style.display = "flex";
-rssBreakDOM.parentNode.insertBefore(commentaryCheckboxWrapperDOM, rssBreakDOM);
-rssBreakDOM.remove();
-
 // Commentary checkbox
+const rssBreakDOM = document.body.querySelector(".rss + br");
+
 const commentaryCheckboxDOM = document.createElement("input");
 commentaryCheckboxDOM.id = "commentary-checkbox";
 commentaryCheckboxDOM.type = "checkbox";
 commentaryCheckboxDOM.checked = showCommentary;
-commentaryCheckboxWrapperDOM.appendChild(commentaryCheckboxDOM);
 
-commentaryCheckboxDOM.addEventListener("change", function() {
-    showCommentary = commentaryCheckboxDOM.checked;
+if(rssBreakDOM) {
+    const commentaryCheckboxWrapperDOM = document.createElement("div");
+    commentaryCheckboxWrapperDOM.style.display = "flex";
+    rssBreakDOM.parentNode.insertBefore(commentaryCheckboxWrapperDOM, rssBreakDOM);
+    rssBreakDOM.remove();
 
-    updateCommentaryBox();
-});
+    commentaryCheckboxWrapperDOM.appendChild(commentaryCheckboxDOM);
+    commentaryCheckboxDOM.addEventListener("change", function() {
+        showCommentary = commentaryCheckboxDOM.checked;
 
-// Commentary checkbox label
-const commentaryCheckboxLabelDOM = document.createElement("label");
-commentaryCheckboxLabelDOM.innerText = "Commentary";
-commentaryCheckboxLabelDOM.setAttribute("for", "commentary-checkbox");
-commentaryCheckboxWrapperDOM.appendChild(commentaryCheckboxLabelDOM);
+        updateCommentaryBox();
+    });
+
+    // Commentary checkbox label
+    const commentaryCheckboxLabelDOM = document.createElement("label");
+    commentaryCheckboxLabelDOM.innerText = "Commentary";
+    commentaryCheckboxLabelDOM.setAttribute("for", "commentary-checkbox");
+    commentaryCheckboxWrapperDOM.appendChild(commentaryCheckboxLabelDOM);
+}
 
 const loadCommentary = () => {
     // Remove old commentary
