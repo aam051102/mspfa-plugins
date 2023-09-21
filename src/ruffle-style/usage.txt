@@ -1,0 +1,5 @@
+ruffle.p1-99999 {
+  #container {
+    opacity: 0.5;
+  }
+}
